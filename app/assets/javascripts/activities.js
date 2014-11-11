@@ -10,7 +10,7 @@ $(function() {
     var updateTime = function (data) {
       var number = $("#active_time span");
       if(data.active_time != parseInt(number.text())) {
-        number.html(data.active_time));
+        number.html(data.active_time);
         number.effect("highlight", {color: "lightgreen"}, 3000);
       }
     }
