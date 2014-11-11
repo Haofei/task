@@ -5,14 +5,12 @@ $(function() {
     var pageName = $(document.body).data("controller") + "#" + $(document.body).data("action");
     
     //user start to view the page
-    $.post("/activities/create", {activities: {status: "active", time: new Date()}, pageName: pageName})
+    $.post("/activities/create", {activities: {status: "active", time: new Date()}, pageName: pageName}, updateTime)
     
     var updateTime = function (data) {
       var number = $("#active_time span");
-      if(data.active_time != parseInt(number.text())) {
-        number.html(data.active_time);
-        number.effect("highlight", {color: "lightgreen"}, 3000);
-      }
+      number.html(data.active_time);
+      number.effect("highlight", {color: "lightgreen"}, 3000);
     }
     
     //user is idle
@@ -26,14 +24,14 @@ $(function() {
 
     //user is active again
     $(document).on( "active.idleTimer", function(event, elem, obj, triggerevent){
-       $.post("/activities/create", {activities: {status: "active", time: new Date()}, pageName: pageName})
+       $.post("/activities/create", {activities: {status: "active", time: new Date()}, pageName: pageName}, updateTime)
        $("#status").html("user is active :-)");
        $("#status").toggleClass("active idle")
     });
     
     //user close the page
     $(window).unload(function() {
-       $.post("/activities/create", {activities: {status: "close", time: new Date()}, pageName: pageName})
+       $.post("/activities/create", {activities: {status: "close", time: new Date()}, pageName: pageName}, updateTime)
     });
     
     //the most easy way to track online user is using heartbeat. or use socket.io and node.js for realtime tracking.
