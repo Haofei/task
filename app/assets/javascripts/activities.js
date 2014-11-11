@@ -1,6 +1,6 @@
 $(function() {
     //monitor if user is idle or not
-    $(document).idleTimer(30000);
+    $(document).idleTimer(5000);
         
     var pageName = $(document.body).data("controller") + "#" + $(document.body).data("action");
     
