@@ -5,3 +5,9 @@
 3. Devise for Rails has sign_in_count build in.
 
 4. The easiest way of tracking how many users are presently online(Meaning, active with last couple of minutes) is to ping the server a few seconds. However, if you want real-time communication Socket.IO and Node.js seem to be the best options. 
+
+
+app is running on heroku
+
+
+https://glacial-peak-8073.herokuapp.com/
