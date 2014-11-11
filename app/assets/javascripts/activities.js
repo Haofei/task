@@ -1,6 +1,6 @@
 $(function() {
     //monitor if user is idle or not
-    $(document).idleTimer(10000);
+    $(document).idleTimer(5000);
         
     var pageName = $(document.body).data("controller") + "#" + $(document.body).data("action");
     
@@ -10,7 +10,7 @@ $(function() {
     var updateTime = function (data) {
       var number = $("#active_time span");
       if(data.active_time != parseInt(number.text())) {
-        number.html(data.active_time);
+        number.html(Math.floor(data.active_time/60));
         number.effect("highlight", {color: "lightgreen"}, 3000);
       }
     }
@@ -40,5 +40,5 @@ $(function() {
     setInterval(function() {
       var still_alive = {status: "still_alive", time: new Date()};
       $.post("/activities/create", {activities: still_alive, pageName: pageName}, updateTime);
-    }, 60000);
+    }, 10000);
 });

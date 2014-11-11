@@ -1,50 +1,7 @@
-Task
-================
+1. Use javascript to track user's activity(idle or active in this case) in browser. I'm using a simple jquery plugin idletimer(https://github.com/thorst/jquery-idletimer) which support mouse, key and touch events.
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+2. To track an anonymouse user's action and eventually associate them with their account once they register, we could set up a permanent tracking cookie in their browser as long as the user does not manually get rid of it.
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+3. Devise for Rails has sign_in_count build in.
 
-Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
-
-Problems? Issues?
------------
-
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
-
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
-If the application doesn’t work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
-
-Ruby on Rails
--------------
-
-This application requires:
-
-- Ruby 2.1.1
-- Rails 4.1.7
-
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
-
-Getting Started
----------------
-
-Documentation and Support
--------------------------
-
-Issues
--------------
-
-Similar Projects
-----------------
-
-Contributing
-------------
-
-Credits
--------
-
-License
--------
+4. The easiest way of tracking how many users are presently online(Meaning, active with last couple of minutes) is to ping the server a few seconds. However, if you want real-time communication Socket.IO and Node.js seem to be the best options. 
