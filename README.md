@@ -1,4 +1,4 @@
-1. Use javascript to track user's activity(idle or active in this case) in browser. I'm using a simple jquery plugin idletimer(https://github.com/thorst/jquery-idletimer) which support mouse, key and touch events.
+1. Use javascript to track user's activity(idle or active in this case) in browser. I'm using a simple jquery plugin idletimer(https://github.com/thorst/jquery-idletimer) which support mouse, key and touch events. 
 
 2. To track an anonymouse user's action and eventually associate them with their account once they register, we could set up a permanent tracking cookie in their browser as long as the user does not manually get rid of it.
 
