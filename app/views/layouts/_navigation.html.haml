@@ -11,3 +11,16 @@
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
         = render 'layouts/navigation_links'
+      #status.active user is active :-)
+      #active_time
+        - if current_user
+          你已经登录了
+          = current_user.sign_in_count
+          次了，
+          总共登录时间是
+          %span= active_time/60
+          分钟了
+        - else
+          你好，陌生人！你没有登录，或者你还没有注册，但是你已经浏览这个页面
+          = active_time/60
+          分钟了。

@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111022910) do
+ActiveRecord::Schema.define(version: 20141111023245) do
+
+  create_table "activities", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "guest_id"
+    t.string   "path"
+    t.string   "status"
+    t.datetime "created_at"
+  end
+
+  create_table "guests", force: true do |t|
+    t.string   "uuid"
+    t.integer  "user_id"
+    t.integer  "active_time", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "guests", ["uuid"], name: "index_guests_on_uuid", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -24,6 +42,7 @@ ActiveRecord::Schema.define(version: 20141111022910) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "active_time",            default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
